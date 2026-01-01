@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>LIUBC 同工平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #666;
+    }
+    nav a {
+      margin-left: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 16px;
+      background: #eef2ff;
+      color: #1e40af;
+    }
+    nav a.primary {
+      background: #2563eb;
+      color: #fff;
+    }
+    .container {
+      padding: 16px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .item {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      text-decoration: none;
+      color: #111;
+      background: #fafafa;
+    }
+    .item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <div class="title">LIUBC 同工平台</div>
+    <div class="subtitle">手机 / 电脑通用 · 内部查看</div>
+  </div>
+  <nav>
+    <a href="./announcements.html">公告</a>
+    <a href="./calendar.html">日程</a>
+    <a href="./minutes.html">会议记录</a>
+    <a href="./files.html">文件库</a>
+    <a href="./inventory.html">库存盘点</a>
+    <a href="./departments.html">部门</a>
+    <a href="./chair.html" class="primary">主席面板</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>首页（公告入口）</h2>
+    <p>建议每周更新公告；同工从这里进入各部门页面。</p>
+  </div>
+
+  <div class="card">
+    <h2>核心功能</h2>
+    <div class="grid">
+      <a class="item" href="./announcements.html">
+        <strong>📢 公告</strong>
+        聚会通知、提醒事项
+      </a>
+      <a class="item" href="./calendar.html">
+        <strong>🗓 日程</strong>
+        聚会与活动安排
+      </a>
+      <a class="item" href="./minutes.html">
+        <strong>📝 会议记录</strong>
+        执事会 / 同工会
+      </a>
+      <a class="item" href="./files.html">
+        <strong>📁 文件库</strong>
+        表格、制度、资料
+      </a>
+      <a class="item" href="./inventory.html">
+        <strong>📦 库存盘点</strong>
+        年度设备与物资
+      </a>
+      <a class="item" href="./departments.html">
+        <strong>👥 部门</strong>
+        负责人与职责
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>部门负责人入口</h2>
+    <div class="grid">
+      <a class="item" href="./pastor.html">牧师</a>
+      <a class="item" href="./chair.html">主席</a>
+      <a class="item" href="./admin.html">总务</a>
+      <a class="item" href="./finance.html">财务</a>
+      <a class="item" href="./secretary.html">文书</a>
+      <a class="item" href="./worship.html">崇拜</a>
+      <a class="item" href="./devotion.html">灵修</a>
+      <a class="item" href="./care.html">关怀</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © LIUBC · Internal Use · 2026
+</footer>
+
+</body>
+</html>
