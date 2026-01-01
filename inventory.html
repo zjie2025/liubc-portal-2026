@@ -2,76 +2,204 @@
 <html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>库存盘点 | LIUBC 同工平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>库存盘点｜LIUBC 同工平台</title>
   <style>
-    :root{--bg:#f6f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--brand:#2563eb;--brand2:#1d4ed8;--shadow:0 10px 25px rgba(0,0,0,.06);--radius:16px;}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans SC",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5}
-    .container{max-width:1100px;margin:0 auto;padding:16px}
-    header{position:sticky;top:0;z-index:10;background:rgba(246,247,251,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
-    .brand{display:flex;align-items:center;gap:10px;min-width:220px}
-    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),#60a5fa);box-shadow:var(--shadow)}
-    .brand h1{font-size:16px;margin:0} .brand p{margin:0;color:var(--muted);font-size:12px}
-    nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-    .navlink{text-decoration:none;padding:8px 10px;border:1px solid var(--border);background:#fff;border-radius:999px;font-size:13px}
-    .navlink.primary{background:var(--brand);border-color:var(--brand);color:#fff}
-    .navlink.active{outline:3px solid rgba(37,99,235,.18);border-color:#c7d2fe}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px;margin-top:14px}
-    h2{margin:0 0 8px 0;font-size:20px} h3{margin:0 0 10px 0;font-size:16px}
-    .muted{color:var(--muted);font-size:13px}
-    .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:13px;padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:#f9fafb}
-    .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
-    ol{margin:8px 0 0 18px}
-    code{background:#f3f4f6;border:1px solid var(--border);padding:2px 6px;border-radius:8px}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Noto Sans SC",Arial; margin:0; background:#f6f7fb; color:#111;}
+    header{background:#fff; border-bottom:1px solid #e9e9ef;}
+    .wrap{max-width:1200px; margin:0 auto; padding:16px;}
+    .top{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;}
+    .brand{display:flex; gap:12px; align-items:center;}
+    .logo{width:44px; height:44px; border-radius:12px; background:#4f74ff;}
+    .h1{font-size:18px; font-weight:700;}
+    .sub{font-size:12px; color:#666; margin-top:2px;}
+    nav a{display:inline-block; padding:8px 12px; border:1px solid #e5e7ef; border-radius:999px; text-decoration:none; color:#222; background:#fff; margin-left:8px;}
+    nav a:hover{background:#f1f4ff;}
+    .card{background:#fff; border:1px solid #e9e9ef; border-radius:16px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.04);}
+    .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px;}
+    input,select{padding:10px 12px; border:1px solid #e5e7ef; border-radius:12px; background:#fff; font-size:14px;}
+    .btn{display:inline-block; padding:8px 12px; border-radius:12px; border:1px solid #e5e7ef; text-decoration:none; color:#222; background:#fff;}
+    .btn.primary{background:#4f74ff; border-color:#4f74ff; color:#fff;}
+    .hint{color:#666; font-size:13px; line-height:1.6;}
+    .err{color:#b00020; background:#fff2f2; border:1px solid #ffd6d6; padding:10px 12px; border-radius:12px; margin:10px 0;}
+    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid #eef0f6; border-radius:14px;}
+    thead th{position:sticky; top:0; background:#f7f9ff; z-index:2; font-size:13px; text-align:left; padding:10px; border-bottom:1px solid #eef0f6;}
+    tbody td{font-size:13px; padding:10px; border-bottom:1px solid #f0f2f8; vertical-align:top;}
+    tbody tr:hover{background:#fbfcff;}
+    .pill{font-size:12px; padding:3px 8px; border-radius:999px; border:1px solid #dfe6ff; background:#f1f4ff; color:#2a43c7;}
   </style>
 </head>
 <body>
 <header>
-  <div class="topbar container">
+  <div class="wrap top">
     <div class="brand">
-      <div class="logo" aria-hidden="true"></div>
+      <div class="logo"></div>
       <div>
-        <h1>LIUBC 同工平台</h1>
-        <p>库存盘点</p>
+        <div class="h1">LIUBC 同工平台｜库存盘点</div>
+        <div class="sub">网页直接展示 Excel + 提供下载</div>
       </div>
     </div>
     <nav>
-      <a class="navlink" href="index.html">首页</a>
-      <a class="navlink" href="announcements.html">公告</a>
-      <a class="navlink" href="calendar.html">日程</a>
-      <a class="navlink" href="minutes.html">会议记录</a>
-      <a class="navlink" href="files.html">文件库</a>
-      <a class="navlink active" href="inventory.html">库存盘点</a>
-      <a class="navlink" href="departments.html">部门</a>
-      <a class="navlink primary" href="chair.html">主席面板</a>
+      <a href="./index.html">首页</a>
+      <a href="./minutes.html">会议记录</a>
+      <a href="./files.html">文件库</a>
+      <a href="./departments.html">部门</a>
+      <a href="./admin.html">主席面板</a>
     </nav>
   </div>
 </header>
 
-<main class="container">
-  <div class="card">
-    <h2>年度库存盘点说明</h2>
-    <div class="muted">建议流程（你可按教会需要修改）：</div>
-    <ol>
-      <li>各部门确认：本部门物品清单 + “责任人/部门”</li>
-      <li>盘点当天：核对数量、状态（在用/闲置/报废/丢失/待维修）</li>
-      <li>盘点结束：主席/总务汇总，形成年度盘点报告</li>
-    </ol>
-
-    <div class="card" style="box-shadow:none;margin-top:12px">
-      <h3>盘点 Excel 文件</h3>
-      <div class="muted">把你的 Excel 放到网站同目录，然后在下面改文件名即可。</div>
-      <p class="muted">例如把文件命名为：<code>inventory_2026.xlsx</code> 并上传到仓库根目录。</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn primary" href="inventory_2026.xlsx">下载/打开盘点表（示例链接）</a>
-        <a class="btn" href="files.html">去文件库</a>
-      </div>
-      <div class="muted" style="margin-top:10px;">
-        ⚠️ 注意：GitHub Pages 对 xlsx 的“在线预览”不稳定，但“下载”通常没问题。
-      </div>
+<main class="wrap">
+  <section class="card">
+    <div class="controls">
+      <a id="downloadLink" class="btn primary" href="./inventory/2026-年度盘点表.xlsx">下载年度盘点表（Excel）</a>
+      <input id="q" placeholder="搜索：物品名称 / 编号 / 状态 / 责任人 / 部门…" style="min-width:280px; flex:1;">
+      <select id="sheet"></select>
+      <button id="reload" class="btn">重新读取 Excel</button>
     </div>
-  </div>
+
+    <p class="hint">
+      ✅ 你只要更新并上传 <code>inventory/2026-年度盘点表.xlsx</code>，网页会自动显示最新表格。<br/>
+      ✅ Excel 里你已经加的字段（库存编号/状态/责任人/部门）会原样显示。<br/>
+      ⚠️ 文件名尽量不要带空格；如果你改了文件名，也要同步改本页的 EXCEL_URL。
+    </p>
+
+    <div id="msg"></div>
+    <div style="overflow:auto; max-height:70vh;">
+      <table id="tbl">
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
 </main>
+
+<!-- SheetJS（读取 xlsx 用） -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<script>
+const EXCEL_URL = "./inventory/2026-年度盘点表.xlsx";
+
+let WB = null;
+let ACTIVE_SHEET = "";
+let RAW_ROWS = [];
+let HEADERS = [];
+
+function showError(t){
+  document.getElementById("msg").innerHTML = `<div class="err">❌ ${t}</div>`;
+}
+function clearMsg(){
+  document.getElementById("msg").innerHTML = "";
+}
+
+async function fetchWorkbook(){
+  clearMsg();
+  const r = await fetch(EXCEL_URL + "?v=" + Date.now());
+  if(!r.ok){
+    throw new Error("读取 Excel 失败：请确认已上传到 inventory/ 目录，并且文件名完全一致。");
+  }
+  const ab = await r.arrayBuffer();
+  WB = XLSX.read(ab, {type:"array"});
+  return WB;
+}
+
+function fillSheetSelector(){
+  const sel = document.getElementById("sheet");
+  sel.innerHTML = "";
+  WB.SheetNames.forEach((name)=>{
+    const op = document.createElement("option");
+    op.value = name; op.textContent = name;
+    sel.appendChild(op);
+  });
+  ACTIVE_SHEET = WB.SheetNames[0] || "";
+  sel.value = ACTIVE_SHEET;
+}
+
+function sheetToRows(sheetName){
+  const ws = WB.Sheets[sheetName];
+  // header:1 => 取二维数组（更稳定）
+  const arr = XLSX.utils.sheet_to_json(ws, {header:1, defval:""});
+  const headerRow = (arr[0] || []).map(h => (h ?? "").toString().trim());
+  const dataRows = arr.slice(1);
+
+  // 去掉全空行
+  const clean = dataRows.filter(r => r.some(c => (c ?? "").toString().trim() !== ""));
+
+  HEADERS = headerRow;
+  RAW_ROWS = clean.map(r=>{
+    const obj = {};
+    HEADERS.forEach((h,idx)=>{ obj[h || ("列"+(idx+1))] = (r[idx] ?? "").toString(); });
+    return obj;
+  });
+}
+
+function renderTable(){
+  const q = document.getElementById("q").value.trim().toLowerCase();
+
+  // 过滤
+  let rows = RAW_ROWS.slice();
+  if(q){
+    rows = rows.filter(obj => {
+      const hay = Object.values(obj).join(" ").toLowerCase();
+      return hay.includes(q);
+    });
+  }
+
+  // 表头
+  const thead = document.getElementById("thead");
+  thead.innerHTML = "";
+  const trh = document.createElement("tr");
+  HEADERS.forEach(h=>{
+    const th = document.createElement("th");
+    th.textContent = h || "";
+    trh.appendChild(th);
+  });
+  thead.appendChild(trh);
+
+  // 表体
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = "";
+  for(const obj of rows){
+    const tr = document.createElement("tr");
+    HEADERS.forEach(h=>{
+      const td = document.createElement("td");
+      const v = (obj[h] ?? "").toString();
+
+      // 小美化：如果列名包含“状态”，显示 pill
+      if(h.includes("状态") && v.trim()){
+        const span = document.createElement("span");
+        span.className = "pill";
+        span.textContent = v;
+        td.appendChild(span);
+      }else{
+        td.textContent = v;
+      }
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  }
+}
+
+async function init(){
+  try{
+    await fetchWorkbook();
+    fillSheetSelector();
+    sheetToRows(ACTIVE_SHEET);
+    renderTable();
+  }catch(e){
+    showError(e.message);
+  }
+}
+
+document.getElementById("q").addEventListener("input", renderTable);
+document.getElementById("reload").addEventListener("click", init);
+document.getElementById("sheet").addEventListener("change", (e)=>{
+  ACTIVE_SHEET = e.target.value;
+  sheetToRows(ACTIVE_SHEET);
+  renderTable();
+});
+
+init();
+</script>
 </body>
 </html>
