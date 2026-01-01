@@ -1,205 +1,105 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>库存盘点｜LIUBC 同工平台</title>
+  <meta charset="utf-8">
+  <title>库存盘点 · LIUBC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
-    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Noto Sans SC",Arial; margin:0; background:#f6f7fb; color:#111;}
-    header{background:#fff; border-bottom:1px solid #e9e9ef;}
-    .wrap{max-width:1200px; margin:0 auto; padding:16px;}
-    .top{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;}
-    .brand{display:flex; gap:12px; align-items:center;}
-    .logo{width:44px; height:44px; border-radius:12px; background:#4f74ff;}
-    .h1{font-size:18px; font-weight:700;}
-    .sub{font-size:12px; color:#666; margin-top:2px;}
-    nav a{display:inline-block; padding:8px 12px; border:1px solid #e5e7ef; border-radius:999px; text-decoration:none; color:#222; background:#fff; margin-left:8px;}
-    nav a:hover{background:#f1f4ff;}
-    .card{background:#fff; border:1px solid #e9e9ef; border-radius:16px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.04);}
-    .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px;}
-    input,select{padding:10px 12px; border:1px solid #e5e7ef; border-radius:12px; background:#fff; font-size:14px;}
-    .btn{display:inline-block; padding:8px 12px; border-radius:12px; border:1px solid #e5e7ef; text-decoration:none; color:#222; background:#fff;}
-    .btn.primary{background:#4f74ff; border-color:#4f74ff; color:#fff;}
-    .hint{color:#666; font-size:13px; line-height:1.6;}
-    .err{color:#b00020; background:#fff2f2; border:1px solid #ffd6d6; padding:10px 12px; border-radius:12px; margin:10px 0;}
-    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid #eef0f6; border-radius:14px;}
-    thead th{position:sticky; top:0; background:#f7f9ff; z-index:2; font-size:13px; text-align:left; padding:10px; border-bottom:1px solid #eef0f6;}
-    tbody td{font-size:13px; padding:10px; border-bottom:1px solid #f0f2f8; vertical-align:top;}
-    tbody tr:hover{background:#fbfcff;}
-    .pill{font-size:12px; padding:3px 8px; border-radius:999px; border:1px solid #dfe6ff; background:#f1f4ff; color:#2a43c7;}
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 16px;
+    }
+    header a {
+      text-decoration: none;
+      color: #2563eb;
+      font-size: 14px;
+    }
+    .container {
+      padding: 16px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    th, td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 10px;
+      text-align: left;
+      font-size: 14px;
+    }
+    th {
+      background: #f1f5f9;
+    }
+    a.button {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 13px;
+      text-decoration: none;
+    }
   </style>
 </head>
+
 <body>
+
 <header>
-  <div class="wrap top">
-    <div class="brand">
-      <div class="logo"></div>
-      <div>
-        <div class="h1">LIUBC 同工平台｜库存盘点</div>
-        <div class="sub">网页直接展示 Excel + 提供下载</div>
-      </div>
-    </div>
-    <nav>
-      <a href="./index.html">首页</a>
-      <a href="./minutes.html">会议记录</a>
-      <a href="./files.html">文件库</a>
-      <a href="./departments.html">部门</a>
-      <a href="./admin.html">主席面板</a>
-    </nav>
-  </div>
+  <a href="./index.html">← 返回首页</a>
 </header>
 
-<main class="wrap">
-  <section class="card">
-    <div class="controls">
-      <a id="downloadLink" class="btn primary" href="./inventory/2026-年度盘点表.xlsx">下载年度盘点表（Excel）</a>
-      <input id="q" placeholder="搜索：物品名称 / 编号 / 状态 / 责任人 / 部门…" style="min-width:280px; flex:1;">
-      <select id="sheet"></select>
-      <button id="reload" class="btn">重新读取 Excel</button>
-    </div>
+<div class="container">
 
-    <p class="hint">
-      ✅ 你只要更新并上传 <code>inventory/2026-年度盘点表.xlsx</code>，网页会自动显示最新表格。<br/>
-      ✅ Excel 里你已经加的字段（库存编号/状态/责任人/部门）会原样显示。<br/>
-      ⚠️ 文件名尽量不要带空格；如果你改了文件名，也要同步改本页的 EXCEL_URL。
-    </p>
+  <div class="card">
+    <h2>📦 教会年度库存盘点</h2>
+    <p>本页面用于查看年度库存盘点概览，并下载原始 Excel 文件。</p>
 
-    <div id="msg"></div>
-    <div style="overflow:auto; max-height:70vh;">
-      <table id="tbl">
-        <thead id="thead"></thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </div>
-  </section>
-</main>
+    <table>
+      <thead>
+        <tr>
+          <th>年度</th>
+          <th>盘点内容</th>
+          <th>责任部门</th>
+          <th>文件</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025</td>
+          <td>教会设备与物资年度盘点</td>
+          <td>总务 / 财务</td>
+          <td>
+            <a class="button"
+               href="./inventory/教会年度库存盘点表_2025.xlsx"
+               target="_blank">
+              下载 Excel
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-<!-- SheetJS（读取 xlsx 用） -->
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  </div>
 
-<script>
-const EXCEL_URL = "./inventory/2026-年度盘点表.xlsx";
+</div>
 
-let WB = null;
-let ACTIVE_SHEET = "";
-let RAW_ROWS = [];
-let HEADERS = [];
-
-function showError(t){
-  document.getElementById("msg").innerHTML = `<div class="err">❌ ${t}</div>`;
-}
-function clearMsg(){
-  document.getElementById("msg").innerHTML = "";
-}
-
-async function fetchWorkbook(){
-  clearMsg();
-  const r = await fetch(EXCEL_URL + "?v=" + Date.now());
-  if(!r.ok){
-    throw new Error("读取 Excel 失败：请确认已上传到 inventory/ 目录，并且文件名完全一致。");
-  }
-  const ab = await r.arrayBuffer();
-  WB = XLSX.read(ab, {type:"array"});
-  return WB;
-}
-
-function fillSheetSelector(){
-  const sel = document.getElementById("sheet");
-  sel.innerHTML = "";
-  WB.SheetNames.forEach((name)=>{
-    const op = document.createElement("option");
-    op.value = name; op.textContent = name;
-    sel.appendChild(op);
-  });
-  ACTIVE_SHEET = WB.SheetNames[0] || "";
-  sel.value = ACTIVE_SHEET;
-}
-
-function sheetToRows(sheetName){
-  const ws = WB.Sheets[sheetName];
-  // header:1 => 取二维数组（更稳定）
-  const arr = XLSX.utils.sheet_to_json(ws, {header:1, defval:""});
-  const headerRow = (arr[0] || []).map(h => (h ?? "").toString().trim());
-  const dataRows = arr.slice(1);
-
-  // 去掉全空行
-  const clean = dataRows.filter(r => r.some(c => (c ?? "").toString().trim() !== ""));
-
-  HEADERS = headerRow;
-  RAW_ROWS = clean.map(r=>{
-    const obj = {};
-    HEADERS.forEach((h,idx)=>{ obj[h || ("列"+(idx+1))] = (r[idx] ?? "").toString(); });
-    return obj;
-  });
-}
-
-function renderTable(){
-  const q = document.getElementById("q").value.trim().toLowerCase();
-
-  // 过滤
-  let rows = RAW_ROWS.slice();
-  if(q){
-    rows = rows.filter(obj => {
-      const hay = Object.values(obj).join(" ").toLowerCase();
-      return hay.includes(q);
-    });
-  }
-
-  // 表头
-  const thead = document.getElementById("thead");
-  thead.innerHTML = "";
-  const trh = document.createElement("tr");
-  HEADERS.forEach(h=>{
-    const th = document.createElement("th");
-    th.textContent = h || "";
-    trh.appendChild(th);
-  });
-  thead.appendChild(trh);
-
-  // 表体
-  const tbody = document.getElementById("tbody");
-  tbody.innerHTML = "";
-  for(const obj of rows){
-    const tr = document.createElement("tr");
-    HEADERS.forEach(h=>{
-      const td = document.createElement("td");
-      const v = (obj[h] ?? "").toString();
-
-      // 小美化：如果列名包含“状态”，显示 pill
-      if(h.includes("状态") && v.trim()){
-        const span = document.createElement("span");
-        span.className = "pill";
-        span.textContent = v;
-        td.appendChild(span);
-      }else{
-        td.textContent = v;
-      }
-      tr.appendChild(td);
-    });
-    tbody.appendChild(tr);
-  }
-}
-
-async function init(){
-  try{
-    await fetchWorkbook();
-    fillSheetSelector();
-    sheetToRows(ACTIVE_SHEET);
-    renderTable();
-  }catch(e){
-    showError(e.message);
-  }
-}
-
-document.getElementById("q").addEventListener("input", renderTable);
-document.getElementById("reload").addEventListener("click", init);
-document.getElementById("sheet").addEventListener("change", (e)=>{
-  ACTIVE_SHEET = e.target.value;
-  sheetToRows(ACTIVE_SHEET);
-  renderTable();
-});
-
-init();
-</script>
 </body>
 </html>
