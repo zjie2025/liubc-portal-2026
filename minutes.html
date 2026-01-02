@@ -1,204 +1,42 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>会议记录｜LIUBC 同工平台</title>
+  <meta charset="utf-8">
+  <title>会议记录 - LIUBC 同工平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Noto Sans SC",Arial; margin:0; background:#f6f7fb; color:#111;}
-    header{background:#fff; border-bottom:1px solid #e9e9ef;}
-    .wrap{max-width:1100px; margin:0 auto; padding:16px;}
-    .top{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;}
-    .brand{display:flex; gap:12px; align-items:center;}
-    .logo{width:44px; height:44px; border-radius:12px; background:#4f74ff;}
-    .h1{font-size:18px; font-weight:700;}
-    .sub{font-size:12px; color:#666; margin-top:2px;}
-    nav a{display:inline-block; padding:8px 12px; border:1px solid #e5e7ef; border-radius:999px; text-decoration:none; color:#222; background:#fff; margin-left:8px;}
-    nav a:hover{background:#f1f4ff;}
-    .card{background:#fff; border:1px solid #e9e9ef; border-radius:16px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.04);}
-    .grid{display:grid; grid-template-columns:1fr; gap:12px;}
-    .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
-    input,select{padding:10px 12px; border:1px solid #e5e7ef; border-radius:12px; background:#fff; font-size:14px;}
-    .list{margin-top:12px; display:grid; gap:10px;}
-    .item{border:1px solid #eef0f6; border-radius:14px; padding:12px;}
-    .meta{display:flex; gap:10px; flex-wrap:wrap; align-items:center; color:#666; font-size:12px;}
-    .title{font-size:16px; font-weight:700; margin:6px 0;}
-    .summary{color:#333; margin:6px 0 10px; line-height:1.5;}
-    .tag{font-size:12px; padding:3px 8px; background:#f1f4ff; border:1px solid #dfe6ff; border-radius:999px; color:#2a43c7;}
-    .btn{display:inline-block; padding:8px 12px; border-radius:12px; border:1px solid #e5e7ef; text-decoration:none; color:#222; background:#fff; margin-right:8px;}
-    .btn.primary{background:#4f74ff; border-color:#4f74ff; color:#fff;}
-    footer{color:#666; font-size:12px; padding:16px 0;}
-    .hint{color:#666; font-size:13px; line-height:1.6;}
-    .err{color:#b00020; background:#fff2f2; border:1px solid #ffd6d6; padding:10px 12px; border-radius:12px;}
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#f5f7fb;color:#111}
+    header{background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .container{max-width:1000px;margin:auto;padding:16px}
+    .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+    .btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:12px;background:#2563eb;color:#fff;text-decoration:none}
+    nav a{margin-left:10px;padding:6px 12px;border-radius:16px;background:#eef2ff;color:#1e40af;text-decoration:none}
   </style>
 </head>
 <body>
 <header>
-  <div class="wrap top">
-    <div class="brand">
-      <div class="logo"></div>
-      <div>
-        <div class="h1">LIUBC 同工平台｜会议记录</div>
-        <div class="sub">入口列表 + 附件下载（PDF/Word）</div>
-      </div>
-    </div>
-    <nav>
-      <a href="./index.html">首页</a>
-      <a href="./announcements.html">公告</a>
-      <a href="./calendar.html">日程</a>
-      <a href="./files.html">文件库</a>
-      <a href="./inventory.html">库存盘点</a>
-      <a href="./departments.html">部门</a>
-      <a href="./admin.html">主席面板</a>
-    </nav>
-  </div>
+  <div><strong>会议记录</strong> · LIUBC</div>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a href="./announcements.html">公告</a>
+    <a href="./calendar.html">日程</a>
+    <a href="./files.html">文件库</a>
+    <a href="./inventory.html">库存盘点</a>
+    <a href="./departments.html">部门</a>
+  </nav>
 </header>
 
-<main class="wrap grid">
-  <section class="card">
-    <div class="controls">
-      <input id="q" placeholder="搜索：标题 / 摘要 / 标签…" style="min-width:260px; flex:1;" />
-      <select id="dept">
-        <option value="">全部部门</option>
-      </select>
-      <select id="year">
-        <option value="">全部年份</option>
-      </select>
-      <button id="reload" class="btn">重新加载</button>
-    </div>
-    <p class="hint">
-      ✅ 新增会议：只需要上传附件到 <code>minutes/</code>，再在 <code>data/minutes.json</code> 里新增一条记录即可。<br/>
-      ✅ 每条记录提供：打开（新标签页）+ 下载（若浏览器支持）。
-    </p>
-    <div id="msg"></div>
-    <div id="list" class="list"></div>
-  </section>
+<div class="container">
+  <div class="card">
+    <h2>会议记录（Google Drive）</h2>
+    <p>文书同工可在文件夹内新增会议记录；其他同工可查看。</p>
+    <a id="openFolder" class="btn" href="#" target="_blank">打开会议记录文件夹</a>
+  </div>
+</div>
 
-  <footer>LIUBC｜Minutes • 本页数据来源：<code>data/minutes.json</code></footer>
-</main>
-
+<script src="./links.js"></script>
 <script>
-const DATA_URL = "./data/minutes.json";
-
-function el(tag, attrs={}, html=""){
-  const e = document.createElement(tag);
-  for(const k in attrs){
-    if(k === "class") e.className = attrs[k];
-    else e.setAttribute(k, attrs[k]);
-  }
-  if(html) e.innerHTML = html;
-  return e;
-}
-
-function safeText(s){ return (s ?? "").toString(); }
-
-async function loadData(){
-  const r = await fetch(DATA_URL + "?v=" + Date.now());
-  if(!r.ok) throw new Error("读取 minutes.json 失败（请确认 data/minutes.json 已提交到 GitHub）");
-  const data = await r.json();
-  if(!Array.isArray(data)) throw new Error("minutes.json 格式错误：需要是数组 []");
-  return data.map(x => ({
-    date: safeText(x.date),
-    title: safeText(x.title),
-    department: safeText(x.department),
-    tags: Array.isArray(x.tags) ? x.tags.map(safeText) : [],
-    summary: safeText(x.summary),
-    file: safeText(x.file)
-  }));
-}
-
-function buildFilters(items){
-  const deptSel = document.getElementById("dept");
-  const yearSel = document.getElementById("year");
-
-  const depts = Array.from(new Set(items.map(i=>i.department).filter(Boolean))).sort();
-  const years = Array.from(new Set(items.map(i=> (i.date||"").slice(0,4)).filter(y=>/^\d{4}$/.test(y)))).sort().reverse();
-
-  deptSel.innerHTML = `<option value="">全部部门</option>` + depts.map(d=>`<option value="${d}">${d}</option>`).join("");
-  yearSel.innerHTML = `<option value="">全部年份</option>` + years.map(y=>`<option value="${y}">${y}</option>`).join("");
-}
-
-function render(items){
-  const q = document.getElementById("q").value.trim().toLowerCase();
-  const dept = document.getElementById("dept").value;
-  const year = document.getElementById("year").value;
-
-  let filtered = items.slice();
-
-  if(dept) filtered = filtered.filter(i => i.department === dept);
-  if(year) filtered = filtered.filter(i => (i.date||"").startsWith(year));
-
-  if(q){
-    filtered = filtered.filter(i => {
-      const hay = [
-        i.title, i.summary, i.department,
-        ...(i.tags||[])
-      ].join(" ").toLowerCase();
-      return hay.includes(q);
-    });
-  }
-
-  // 日期倒序
-  filtered.sort((a,b) => (b.date||"").localeCompare(a.date||""));
-
-  const list = document.getElementById("list");
-  list.innerHTML = "";
-
-  if(filtered.length === 0){
-    list.appendChild(el("div",{class:"item"}, "没有匹配的会议记录。"));
-    return;
-  }
-
-  for(const i of filtered){
-    const box = el("div",{class:"item"});
-    const meta = el("div",{class:"meta"});
-    meta.appendChild(el("span",{}, `📅 ${i.date || "（未填日期）"}`));
-    if(i.department) meta.appendChild(el("span",{}, `🏷️ ${i.department}`));
-    box.appendChild(meta);
-
-    box.appendChild(el("div",{class:"title"}, i.title || "（未填标题）"));
-
-    if(i.tags?.length){
-      const tags = el("div",{class:"meta"});
-      i.tags.forEach(t => tags.appendChild(el("span",{class:"tag"}, t)));
-      box.appendChild(tags);
-    }
-
-    if(i.summary) box.appendChild(el("div",{class:"summary"}, i.summary));
-
-    const actions = el("div",{});
-    if(i.file){
-      actions.appendChild(el("a",{class:"btn primary", href:i.file, target:"_blank", rel:"noopener"}, "打开附件"));
-      actions.appendChild(el("a",{class:"btn", href:i.file, download:""}, "下载"));
-    }else{
-      actions.appendChild(el("span",{class:"hint"}, "（未提供附件链接）"));
-    }
-    box.appendChild(actions);
-
-    list.appendChild(box);
-  }
-}
-
-let CACHE = [];
-
-async function init(){
-  const msg = document.getElementById("msg");
-  msg.innerHTML = "";
-  try{
-    CACHE = await loadData();
-    buildFilters(CACHE);
-    render(CACHE);
-  }catch(e){
-    msg.innerHTML = `<div class="err">❌ ${e.message}</div>`;
-  }
-}
-
-document.getElementById("q").addEventListener("input", ()=>render(CACHE));
-document.getElementById("dept").addEventListener("change", ()=>render(CACHE));
-document.getElementById("year").addEventListener("change", ()=>render(CACHE));
-document.getElementById("reload").addEventListener("click", init);
-
-init();
+  document.getElementById("openFolder").href = window.LIUBC_LINKS.driveFolders.minutes;
 </script>
 </body>
 </html>
