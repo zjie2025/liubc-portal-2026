@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>文件库 - LIUBC 同工平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#f5f7fb;color:#111}
+    header{background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .container{max-width:1000px;margin:auto;padding:16px}
+    .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+    .btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:12px;background:#2563eb;color:#fff;text-decoration:none}
+    nav a{margin-left:10px;padding:6px 12px;border-radius:16px;background:#eef2ff;color:#1e40af;text-decoration:none}
+  </style>
+</head>
+<body>
+<header>
+  <div><strong>文件库</strong> · LIUBC</div>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a href="./announcements.html">公告</a>
+    <a href="./calendar.html">日程</a>
+    <a href="./minutes.html">会议记录</a>
+    <a href="./inventory.html">库存盘点</a>
+    <a href="./departments.html">部门</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>文件库（Google Drive）</h2>
+    <p>制度、表格、模板、诗歌单、培训资料统一放这里。</p>
+    <a id="openFolder" class="btn" href="#" target="_blank">打开文件库文件夹</a>
+  </div>
+</div>
+
+<script src="./links.js"></script>
+<script>
+  document.getElementById("openFolder").href = window.LIUBC_LINKS.driveFolders.files;
+</script>
+</body>
+</html>
