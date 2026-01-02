@@ -20,6 +20,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      gap: 10px;
     }
     .title {
       font-size: 18px;
@@ -37,6 +38,7 @@
       border-radius: 16px;
       background: #eef2ff;
       color: #1e40af;
+      display: inline-block;
     }
     nav a.primary {
       background: #2563eb;
@@ -44,7 +46,7 @@
     }
     .container {
       padding: 16px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
     .card {
@@ -71,6 +73,57 @@
       display: block;
       margin-bottom: 4px;
     }
+
+    /* ✅ 待办事项：5列布局（桌面） */
+    .todo-grid{
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+    /* 平板：3列 */
+    @media (max-width: 1100px){
+      .todo-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    /* 手机：1列 */
+    @media (max-width: 640px){
+      nav a { margin-left: 0; }
+      .todo-grid{ grid-template-columns: 1fr; }
+    }
+
+    .todo-col{
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fafafa;
+      overflow: hidden;
+      min-height: 220px;
+    }
+    .todo-col h3{
+      margin: 0;
+      padding: 10px 12px;
+      font-size: 14px;
+      border-bottom: 1px solid #e5e7eb;
+      background: #fff;
+    }
+    .todo-col ul{
+      margin: 0;
+      padding: 10px 16px 14px 24px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .todo-col li{
+      margin: 6px 0;
+    }
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background:#eef2ff;
+      color:#1e40af;
+      margin-left:6px;
+      vertical-align: middle;
+    }
+
     footer {
       text-align: center;
       font-size: 12px;
@@ -102,7 +155,7 @@
 
   <div class="card">
     <h2>首页（公告入口）</h2>
-    <p>建议每周更新公告；同工从这里进入各部门页面。</p>
+    <p>建议每周更新公告；同工从这里进入各功能页面。</p>
   </div>
 
   <div class="card">
@@ -135,17 +188,61 @@
     </div>
   </div>
 
+  <!-- ✅ 新增：待办事项（替代“部门负责人入口”） -->
   <div class="card">
-    <h2>部门负责人入口</h2>
-    <div class="grid">
-      <a class="item" href="./pastor.html">牧师</a>
-      <a class="item" href="./chair.html">主席</a>
-      <a class="item" href="./admin.html">总务</a>
-      <a class="item" href="./finance.html">财务</a>
-      <a class="item" href="./secretary.html">文书</a>
-      <a class="item" href="./worship.html">崇拜</a>
-      <a class="item" href="./devotion.html">灵修</a>
-      <a class="item" href="./care.html">关怀</a>
+    <h2>待办事项 <span class="tag">仅主席维护</span></h2>
+    <p style="margin-top:6px;color:#666;font-size:13px;">你只需要在 GitHub 里编辑本页的待办清单即可，更新后全站自动显示。</p>
+
+    <div class="todo-grid">
+      <div class="todo-col">
+        <h3>本周（优先）</h3>
+        <ul>
+          <li>更新本周公告内容</li>
+          <li>确认主日服事表 / 讲台安排</li>
+          <li>同工会：准备议程与提醒</li>
+          <li>需要跟进的探访事项</li>
+        </ul>
+      </div>
+
+      <div class="todo-col">
+        <h3>会议 / 决议跟进</h3>
+        <ul>
+          <li>上次会议决议：落实负责人</li>
+          <li>收集各部门本月报告</li>
+          <li>整理会议记录并归档</li>
+          <li>通知相关同工执行时间点</li>
+        </ul>
+      </div>
+
+      <div class="todo-col">
+        <h3>财务 / 总务</h3>
+        <ul>
+          <li>检查本月收支与票据</li>
+          <li>设备维修 / 采购需求汇总</li>
+          <li>场地使用与钥匙管理</li>
+          <li>安全检查（电源/门锁）</li>
+        </ul>
+      </div>
+
+      <div class="todo-col">
+        <h3>事工推进</h3>
+        <ul>
+          <li>主日学老师招募/排班</li>
+          <li>灵修/祷告会安排</li>
+          <li>关怀名单更新与分配</li>
+          <li>崇拜同工协调（诗歌/音控）</li>
+        </ul>
+      </div>
+
+      <div class="todo-col">
+        <h3>月度 / 年度</h3>
+        <ul>
+          <li>月末：部门总结与下月计划</li>
+          <li>季度：同工训练 / 复盘</li>
+          <li>年度：库存盘点与更新编号</li>
+          <li>年度：预算与部门目标</li>
+        </ul>
+      </div>
     </div>
   </div>
 
