@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>部门 - LIUBC 同工平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#f5f7fb;color:#111}
+    header{background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .container{max-width:1000px;margin:auto;padding:16px}
+    .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+    .item{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fafafa;text-decoration:none;color:#111}
+    .item strong{display:block;margin-bottom:6px}
+    nav a{margin-left:10px;padding:6px 12px;border-radius:16px;background:#eef2ff;color:#1e40af;text-decoration:none}
+  </style>
+</head>
+<body>
+<header>
+  <div><strong>部门</strong> · LIUBC</div>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a href="./announcements.html">公告</a>
+    <a href="./calendar.html">日程</a>
+    <a href="./minutes.html">会议记录</a>
+    <a href="./files.html">文件库</a>
+    <a href="./inventory.html">库存盘点</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>部门负责人页面（Google 文档/表格）</h2>
+    <p>每个负责人点自己的部门即可编辑；其他同工按权限查看。</p>
+
+    <div class="grid">
+      <a class="item" id="pastor" href="#" target="_blank"><strong>牧师</strong> 打开部门页面</a>
+      <a class="item" id="chair" href="#" target="_blank"><strong>主席</strong> 打开部门页面</a>
+      <a class="item" id="admin" href="#" target="_blank"><strong>总务</strong> 打开部门页面</a>
+      <a class="item" id="finance" href="#" target="_blank"><strong>财务</strong> 打开部门页面</a>
+      <a class="item" id="secretary" href="#" target="_blank"><strong>文书</strong> 打开部门页面</a>
+      <a class="item" id="worship" href="#" target="_blank"><strong>崇拜</strong> 打开部门页面</a>
+      <a class="item" id="devotion" href="#" target="_blank"><strong>灵修</strong> 打开部门页面</a>
+      <a class="item" id="care" href="#" target="_blank"><strong>关怀</strong> 打开部门页面</a>
+    </div>
+  </div>
+</div>
+
+<script src="./links.js"></script>
+<script>
+  const d = window.LIUBC_LINKS.deptDocs;
+  document.getElementById("pastor").href = d.pastor;
+  document.getElementById("chair").href = d.chair;
+  document.getElementById("admin").href = d.admin;
+  document.getElementById("finance").href = d.finance;
+  document.getElementById("secretary").href = d.secretary;
+  document.getElementById("worship").href = d.worship;
+  document.getElementById("devotion").href = d.devotion;
+  document.getElementById("care").href = d.care;
+</script>
+</body>
+</html>
