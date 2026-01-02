@@ -1,25 +1,29 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <title>公告 - LIUBC 同工平台</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <title>公告｜LIUBC 同工平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#f5f7fb;color:#111}
-    header{background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-    a{color:#2563eb;text-decoration:none}
-    .container{max-width:1000px;margin:auto;padding:16px}
-    .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-    .btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:12px;background:#2563eb;color:#fff}
-    .btn2{display:inline-block;margin-top:10px;margin-left:10px;padding:10px 14px;border-radius:12px;background:#eef2ff;color:#1e40af}
-    nav a{margin-left:10px;padding:6px 12px;border-radius:16px;background:#eef2ff;color:#1e40af}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f5f7fb;color:#111}
+    header{background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .title{font-size:16px;font-weight:700}
+    nav a{margin-left:10px;text-decoration:none;font-size:14px;padding:6px 12px;border-radius:16px;background:#eef2ff;color:#1e40af;display:inline-block}
+    nav a.primary{background:#2563eb;color:#fff}
+    .container{max-width:1100px;margin:auto;padding:16px}
+    .card{background:#fff;border-radius:14px;padding:14px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+    .hint{font-size:13px;color:#666;margin:0 0 10px}
+    iframe{width:100%;height:78vh;border:1px solid #e5e7eb;border-radius:12px;background:#fff}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid #e5e7eb;background:#fafafa;color:#111;text-decoration:none;font-size:14px}
   </style>
 </head>
 <body>
 <header>
-  <div><strong>公告</strong> · LIUBC</div>
+  <div class="title">📢 公告</div>
   <nav>
     <a href="./index.html">首页</a>
+    <a href="./announcements.html" class="primary">公告</a>
     <a href="./calendar.html">日程</a>
     <a href="./minutes.html">会议记录</a>
     <a href="./files.html">文件库</a>
@@ -30,16 +34,24 @@
 
 <div class="container">
   <div class="card">
-    <h2>公告（Google Drive）</h2>
-    <p>点击打开 Google Drive 的「公告」文件夹，在里面新建/编辑公告文档。</p>
-    <a id="openFolder" class="btn" href="#" target="_blank">打开公告文件夹</a>
-    <a class="btn2" href="./index.html">返回首页</a>
+    <p class="hint">
+      下面是嵌入的 Google Doc（公告文档）。你只要在 Google Doc 里编辑，网页会自动显示最新内容。
+    </p>
+
+    <!-- ✅ 把下面 DOC_ID 换成你的“公告 Google Doc”的ID -->
+    <!-- 推荐用 /preview（最简单） -->
+    <iframe
+      src="https://docs.google.com/document/d/DOC_ID/preview"
+      allow="autoplay"
+    ></iframe>
+
+    <div class="btns">
+      <!-- 可选：打开可编辑版本（需要你在Doc共享权限允许编辑） -->
+      <a class="btn" href="https://docs.google.com/document/d/DOC_ID/edit" target="_blank" rel="noopener">打开并编辑（Google Doc）</a>
+      <!-- 可选：打开只读预览 -->
+      <a class="btn" href="https://docs.google.com/document/d/DOC_ID/preview" target="_blank" rel="noopener">新窗口预览</a>
+    </div>
   </div>
 </div>
-
-<script src="./links.js"></script>
-<script>
-  document.getElementById("openFolder").href = window.LIUBC_LINKS.driveFolders.announcements;
-</script>
 </body>
 </html>
