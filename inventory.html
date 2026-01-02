@@ -2,104 +2,49 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>库存盘点 · LIUBC</title>
+  <title>库存盘点 - LIUBC 同工平台</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fb;
-      color: #222;
-    }
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 14px 16px;
-    }
-    header a {
-      text-decoration: none;
-      color: #2563eb;
-      font-size: 14px;
-    }
-    .container {
-      padding: 16px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-    }
-    th, td {
-      border-bottom: 1px solid #e5e7eb;
-      padding: 10px;
-      text-align: left;
-      font-size: 14px;
-    }
-    th {
-      background: #f1f5f9;
-    }
-    a.button {
-      display: inline-block;
-      padding: 6px 12px;
-      background: #2563eb;
-      color: #fff;
-      border-radius: 6px;
-      font-size: 13px;
-      text-decoration: none;
-    }
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#f5f7fb;color:#111}
+    header{background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .container{max-width:1000px;margin:auto;padding:16px}
+    .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+    .btn{display:inline-block;margin-top:10px;margin-right:10px;padding:10px 14px;border-radius:12px;background:#2563eb;color:#fff;text-decoration:none}
+    .btn2{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:12px;background:#eef2ff;color:#1e40af;text-decoration:none}
+    nav a{margin-left:10px;padding:6px 12px;border-radius:16px;background:#eef2ff;color:#1e40af;text-decoration:none}
   </style>
 </head>
-
 <body>
-
 <header>
-  <a href="./index.html">← 返回首页</a>
+  <div><strong>库存盘点</strong> · LIUBC</div>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a href="./announcements.html">公告</a>
+    <a href="./calendar.html">日程</a>
+    <a href="./minutes.html">会议记录</a>
+    <a href="./files.html">文件库</a>
+    <a href="./departments.html">部门</a>
+  </nav>
 </header>
 
 <div class="container">
-
   <div class="card">
-    <h2>📦 教会年度库存盘点</h2>
-    <p>本页面用于查看年度库存盘点概览，并下载原始 Excel 文件。</p>
+    <h2>库存盘点（Google Drive / Google 表格）</h2>
+    <p>总务/财务可在表格中直接编辑；主席/牧师可查看全表。</p>
 
-    <table>
-      <thead>
-        <tr>
-          <th>年度</th>
-          <th>盘点内容</th>
-          <th>责任部门</th>
-          <th>文件</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2025</td>
-          <td>教会设备与物资年度盘点</td>
-          <td>总务 / 财务</td>
-          <td>
-            <a class="button"
-               href="./inventory/教会年度库存盘点表_2025.xlsx"
-               target="_blank">
-              下载 Excel
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <a id="openInvFolder" class="btn" href="#" target="_blank">打开库存盘点文件夹</a>
+    <a id="openInvSheet" class="btn2" href="#" target="_blank">打开盘点表（编辑）</a>
 
+    <p style="margin-top:14px;color:#666;font-size:13px">
+      说明：如果需要“网页直接显示表格”，我下一步教你如何在 Google 表格里「发布到网页」并嵌入。
+    </p>
   </div>
-
 </div>
 
+<script src="./links.js"></script>
+<script>
+  document.getElementById("openInvFolder").href = window.LIUBC_LINKS.driveFolders.inventory;
+  document.getElementById("openInvSheet").href = window.LIUBC_LINKS.deptDocs.finance; // 这里用 finance 作为盘点表链接（你也可以改成 inventorySheet）
+</script>
 </body>
 </html>
