@@ -2,14 +2,44 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>公告 | LIUBC 同工平台</title>
+  <title>公告 - LIUBC 同工平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#f5f7fb;color:#111}
+    header{background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    a{color:#2563eb;text-decoration:none}
+    .container{max-width:1000px;margin:auto;padding:16px}
+    .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+    .btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:12px;background:#2563eb;color:#fff}
+    .btn2{display:inline-block;margin-top:10px;margin-left:10px;padding:10px 14px;border-radius:12px;background:#eef2ff;color:#1e40af}
+    nav a{margin-left:10px;padding:6px 12px;border-radius:16px;background:#eef2ff;color:#1e40af}
+  </style>
 </head>
 <body>
-  <h1>公告页面</h1>
-  <p>这是公告页面，后续可以在这里更新每周通知。</p>
+<header>
+  <div><strong>公告</strong> · LIUBC</div>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a href="./calendar.html">日程</a>
+    <a href="./minutes.html">会议记录</a>
+    <a href="./files.html">文件库</a>
+    <a href="./inventory.html">库存盘点</a>
+    <a href="./departments.html">部门</a>
+  </nav>
+</header>
 
-  <p>
-    <a href="index.html">← 返回首页</a>
-  </p>
+<div class="container">
+  <div class="card">
+    <h2>公告（Google Drive）</h2>
+    <p>点击打开 Google Drive 的「公告」文件夹，在里面新建/编辑公告文档。</p>
+    <a id="openFolder" class="btn" href="#" target="_blank">打开公告文件夹</a>
+    <a class="btn2" href="./index.html">返回首页</a>
+  </div>
+</div>
+
+<script src="./links.js"></script>
+<script>
+  document.getElementById("openFolder").href = window.LIUBC_LINKS.driveFolders.announcements;
+</script>
 </body>
 </html>
