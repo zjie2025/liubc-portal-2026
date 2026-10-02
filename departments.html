@@ -19,16 +19,22 @@
 (function(){
 var T=3321102815;
 function h(s){var h1=0xdeadbeef,h2=0x41c6ce57;for(var i=0;i<s.length;i++){var c=s.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h1^=h1>>>16;h1=Math.imul(h1,2246822507);h1^=h1>>>13;h2=Math.imul(h2^c,2654435761);h2^=h2>>>16;h2=Math.imul(h2,2246822507);h2^=h2>>>13;}return (h2*2097152+(h1>>>11))>>>0;}
-window.__liubcGo=function(){
-  var v=document.getElementById('__p').value;
-  if(h(v)===T){try{sessionStorage.setItem('liubc_ok','1');}catch(e){}location.reload();}
-  else{document.getElementById('__e').textContent='\u5bc6\u7801\u4e0d\u5bf9\uff0c\u8bf7\u518d\u8bd5\u4e00\u6b21';}
-};
-window.__liubcKey=function(ev){if(ev.key==='Enter'){window.__liubcGo();}};
-try{if(sessionStorage.getItem('liubc_ok')==='1')return;}catch(e){}
-document.open();
-document.write('<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>LIUBC \u540c\u5de5\u5e73\u53f0</title><style>body{font-family:system-ui,-apple-system,sans-serif;background:#1f2937;color:#f9fafb;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}.box{background:#374151;padding:32px;border-radius:12px;text-align:center;max-width:320px;width:90%}input{padding:10px;width:100%;box-sizing:border-box;margin:12px 0;border-radius:6px;border:1px solid #6b7280;font-size:16px}button{background:#d4a017;color:#111827;border:none;padding:10px 24px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:16px}.err{color:#f87171;font-size:14px;min-height:20px}</style></head><body><div class="box"><h2>\U0001f512 LIUBC \u540c\u5de5\u5e73\u53f0</h2><p style="color:#d1d5db">\u5185\u90e8\u9875\u9762\uff0c\u8bf7\u8f93\u5165\u5bc6\u7801</p><div class="err" id="__e"></div><input type="password" id="__p" placeholder="\u5bc6\u7801" onkeydown="window.__liubcKey(event)"><br><button onclick="window.__liubcGo()">\u8fdb\u5165</button></div></body></html>');
-document.close();
+function showLock(){
+document.title='Locked';
+var css='html,body{height:100%}body{font-family:system-ui,-apple-system,sans-serif;background:#1f2937;color:#f9fafb;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}.box{background:#374151;border:1px solid #4b5563;padding:36px;border-radius:12px;text-align:center;max-width:320px;width:90%}input{padding:10px;width:100%;box-sizing:border-box;margin:12px 0;border-radius:6px;border:1px solid #4b5563;font-size:16px;background:#fff;color:#111}button{background:#d4a017;color:#111827;border:none;padding:10px 24px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:16px}.err{color:#f87171;font-size:14px;min-height:20px}';
+var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+document.body.innerHTML='<div class="box"><h2>\U0001f512 LIUBC \u540c\u5de5\u5e73\u53f0</h2><p style="color:#d1d5db">\u5185\u90e8\u9875\u9762\uff0c\u8bf7\u8f93\u5165\u5bc6\u7801</p><div class="err" id="__e"></div><input type="password" id="__p" placeholder="Password"><br><button id="__b">\u8fdb\u5165</button></div>';
+document.documentElement.style.display='';
+function go(){var v=document.getElementById('__p').value;if(h(v)===T){try{sessionStorage.setItem('liubc_ok','1');}catch(e){}location.reload();}else{document.getElementById('__e').textContent='Wrong password, try again.';}}
+document.getElementById('__b').addEventListener('click',go);
+document.getElementById('__p').addEventListener('keydown',function(e){if(e.key==='Enter')go();});
+setTimeout(function(){var i=document.getElementById('__p');if(i)i.focus();},50);
+}
+var ok=false;
+try{ok=sessionStorage.getItem('liubc_ok')==='1';}catch(e){}
+if(ok)return;
+document.documentElement.style.display='none';
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',showLock);}else{showLock();}
 })();
 </script>
 </head>
